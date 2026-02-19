@@ -34,7 +34,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   AppBar _buildAppBar() {
     return AppBar(
-      leading: const Icon(Icons.arrow_back_ios_new, size: 20),
       title: const Text('TKD Student App'),
       actions: [
         IconButton(
@@ -54,10 +53,9 @@ class _HomeScreenState extends State<HomeScreen> {
           const SizedBox(height: 8),
           Text(
             'Good morning, ${_student.name.split(' ').first}',
-            style: Theme.of(context)
-                .textTheme
-                .headlineMedium
-                ?.copyWith(fontWeight: FontWeight.bold),
+            style: Theme.of(
+              context,
+            ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
           ProfileCard(student: _student),
