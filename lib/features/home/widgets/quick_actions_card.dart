@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../theme/app_theme.dart';
+import '../../../features/home/quick_attendance_screen.dart'; 
 import 'section_card.dart';
 
 class QuickAction {
@@ -17,15 +18,22 @@ class QuickAction {
 class QuickActionsCard extends StatelessWidget {
   const QuickActionsCard({super.key});
 
-  static const List<QuickAction> _actions = [
-    QuickAction(icon: Icons.people_alt_outlined, label: 'Attendance'),
-    QuickAction(icon: Icons.credit_card_outlined, label: 'Billing'),
-    QuickAction(icon: Icons.workspace_premium_outlined, label: 'Certificates'),
-    QuickAction(icon: Icons.chat_bubble_outline_rounded, label: 'Chat'),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final List<QuickAction> actions = [
+      QuickAction(
+        icon: Icons.people_alt_outlined,
+        label: 'Attendance',
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => const AttendanceScreen()),
+        ),
+      ),
+      QuickAction(icon: Icons.credit_card_outlined, label: 'Billing'),
+      QuickAction(icon: Icons.workspace_premium_outlined, label: 'Certificates'),
+      QuickAction(icon: Icons.chat_bubble_outline_rounded, label: 'Chat'),
+    ];
+
     return SectionCard(
       label: '⚡ Quick Actions',
       child: GridView.count(
@@ -35,7 +43,7 @@ class QuickActionsCard extends StatelessWidget {
         crossAxisSpacing: 12,
         mainAxisSpacing: 12,
         childAspectRatio: 2.2,
-        children: _actions.map((action) => _ActionTile(action: action)).toList(),
+        children: actions.map((action) => _ActionTile(action: action)).toList(),
       ),
     );
   }
@@ -48,24 +56,31 @@ class _ActionTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: action.onTap,
-      child: Container(
-        decoration: BoxDecoration(
-          color: AppTheme.tileBackground,
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: AppTheme.tileBorder),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(action.icon, size: 22, color: Colors.black87),
-            const SizedBox(width: 8),
-            Text(
-              action.label,
-              style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 13),
-            ),
-          ],
+    return Material(
+      color: AppTheme.tileBackground,
+      borderRadius: BorderRadius.circular(12),
+      child: InkWell(
+        onTap: action.onTap,
+        borderRadius: BorderRadius.circular(12),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: AppTheme.tileBorder),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(action.icon, size: 22, color: Colors.black87),
+              const SizedBox(width: 8),
+              Text(
+                action.label,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 13,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
