@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../models/student.dart';
+import '../../../models/student_model.dart';
 import '../../../theme/app_theme.dart';
 import 'section_card.dart';
 

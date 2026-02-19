@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../models/student.dart';
+import '../../models/student_model.dart';
 import 'widgets/bottom_nav_bar.dart';
 import 'widgets/profile_card.dart';
 import 'widgets/quick_actions_card.dart';
