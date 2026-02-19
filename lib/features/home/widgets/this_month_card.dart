@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../models/student.dart';
-import '../theme/app_theme.dart';
+import '../../../models/student.dart';
+import '../../../theme/app_theme.dart';
 import 'section_card.dart';
 
 class ThisMonthCard extends StatelessWidget {
