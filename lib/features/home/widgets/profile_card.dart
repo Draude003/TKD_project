@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../models/student.dart';
+import 'package:tkd/features/studprofile/student_profile.dart';
+import '../../../models/student_model.dart';
 import '../../../theme/app_theme.dart';
 
 class ProfileCard extends StatelessWidget {
@@ -9,23 +10,32 @@ class ProfileCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: AppTheme.primaryDark,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Row(
-        children: [
-          _Avatar(),
-          const SizedBox(width: 14),
-          _StudentInfo(student: student),
-        ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => StudentProfileScreen(student: student),
+          ),
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: AppTheme.primaryDark,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Row(
+          children: [
+            _Avatar(),
+            const SizedBox(width: 14),
+            _StudentInfo(student: student),
+          ],
+        ),
       ),
     );
   }
 }
-
 class _Avatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'widgets/overview_tab.dart';
+import 'package:tkd/models/student_model.dart';
 import 'widgets/attendance_tab.dart';
 import 'widgets/billing_tab.dart';
 import 'widgets/competition_tab.dart';
 
 class StudentProfileScreen extends StatefulWidget {
-  const StudentProfileScreen({super.key});
+  final Student student;
+
+  const StudentProfileScreen({super.key, required this.student});
 
   @override
   State<StudentProfileScreen> createState() => _StudentProfileScreenState();
@@ -105,7 +108,7 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
     );
   }
 
-  Widget _beltRow() {
+  Widget _beltRow(String belt) {
     return Column(
       children: [
         Padding(
@@ -128,9 +131,9 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
                       color: const Color(0xFF22C55E),
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: const Text(
-                      'Green Belt',
-                      style: TextStyle(
+                    child: Text(
+                      belt,
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 13,
                         fontWeight: FontWeight.w700,
@@ -149,6 +152,8 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final student = widget.student;
+
     return Scaffold(
       backgroundColor: const Color(0xFFF2F2F7),
       body: Column(
@@ -191,6 +196,7 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
                       ],
                     ),
                   ),
+                  const SizedBox(height: 8),
                   Container(
                     width: 72,
                     height: 72,
@@ -203,9 +209,9 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
                     ),
                   ),
                   const SizedBox(height: 12),
-                  const Text(
-                    'Juan dela Cruz',
-                    style: TextStyle(
+                  Text(
+                    student.name,
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
@@ -233,20 +239,20 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
                           _infoRow(
                             emoji: '🎂',
                             label: 'AGE',
-                            value: '12 years old',
+                            value: '${student.age} years old',
                             divider: true,
                           ),
-                          _beltRow(),
+                          _beltRow(student.beltLevel),
                           _infoRow(
                             emoji: '🥊',
                             label: 'PROGRAM',
-                            value: 'Junior Sparring',
+                            value: student.program,
                             divider: true,
                           ),
                           _infoRow(
                             emoji: '📍',
                             label: 'BRANCH',
-                            value: 'TKD Main Dojang',
+                            value: student.branch,
                             divider: false,
                           ),
                         ],
@@ -291,9 +297,9 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
                                 ),
                               ),
                               const SizedBox(height: 2),
-                              const Text(
-                                'Maria Dela Cruz',
-                                style: TextStyle(
+                              Text(
+                                student.linkedParent,
+                                style: const TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.w600,
                                   color: Color(0xFF1C1C1E),

@@ -122,7 +122,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                 Text(
                   record['day'],
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: Color(0xFF1C1C1E), // 👈 dati white, ngayon dark
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
@@ -179,7 +179,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
                 const SizedBox(height: 3),
                 Text(
                   record['method'],
-                  style: TextStyle(color: Colors.grey[600], fontSize: 12),
+                  style: TextStyle(color: Colors.grey[500], fontSize: 12), // 👈 dati grey[600]
                 ),
               ],
             ),
@@ -200,6 +200,7 @@ class _AttendanceTabState extends State<AttendanceTab> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Summary Card
           Container(
             decoration: BoxDecoration(
               color: Colors.white,
@@ -262,6 +263,8 @@ class _AttendanceTabState extends State<AttendanceTab> {
             ),
           ),
           const SizedBox(height: 16),
+
+          // Filter Chips
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -309,10 +312,19 @@ class _AttendanceTabState extends State<AttendanceTab> {
             ),
           ),
           const SizedBox(height: 16),
+
+          // Attendance History Card — 👈 white na, same style ng Summary
           Container(
             decoration: BoxDecoration(
-              color: const Color(0xFF1C1C1E),
+              color: Colors.white, // 👈 dati black
               borderRadius: BorderRadius.circular(16),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.05), // 👈 dagdag
+                  blurRadius: 8,
+                  offset: const Offset(0, 2),
+                ),
+              ],
             ),
             padding: const EdgeInsets.all(16),
             child: Column(
@@ -320,12 +332,12 @@ class _AttendanceTabState extends State<AttendanceTab> {
               children: [
                 const Row(
                   children: [
-                    Icon(Icons.list_alt, color: Colors.white, size: 18),
+                    Icon(Icons.list_alt, color: Color(0xFF1C1C1E), size: 18), // 👈 dati white
                     SizedBox(width: 8),
                     Text(
                       'Attendance History',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Color(0xFF1C1C1E), // 👈 dati white
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
@@ -348,6 +360,8 @@ class _AttendanceTabState extends State<AttendanceTab> {
             ),
           ),
           const SizedBox(height: 16),
+
+          // Download Button
           SizedBox(
             width: double.infinity,
             child: ElevatedButton.icon(
