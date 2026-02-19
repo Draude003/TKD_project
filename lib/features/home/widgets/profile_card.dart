@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../models/student.dart';
-import '../theme/app_theme.dart';
+import '../../../models/student.dart';
+import '../../../theme/app_theme.dart';
 
 class ProfileCard extends StatelessWidget {
   final Student student;

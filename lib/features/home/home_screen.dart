@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../models/student.dart';
-import '../widgets/bottom_nav_bar.dart';
-import '../widgets/profile_card.dart';
-import '../widgets/quick_actions_card.dart';
-import '../widgets/recent_alerts_card.dart';
-import '../widgets/status_today_card.dart';
-import '../widgets/this_month_card.dart';
+import '../../models/student.dart';
+import 'widgets/bottom_nav_bar.dart';
+import 'widgets/profile_card.dart';
+import 'widgets/quick_actions_card.dart';
+import 'widgets/recent_alerts_card.dart';
+import 'widgets/status_today_card.dart';
+import 'widgets/this_month_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../theme/app_theme.dart';
+import '../../../theme/app_theme.dart';
 import 'section_card.dart';
 
 class RecentAlertsCard extends StatelessWidget {
