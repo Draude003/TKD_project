@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../theme/app_theme.dart';
-import '../../../features/progress/progress_screen.dart';
+import '../../../features/home/home_screen.dart';
 import '../../../features/chat/message_screen.dart';
 
 class _NavItem {
@@ -35,14 +35,13 @@ class AppBottomNavBar extends StatelessWidget {
 
     switch (index) {
       case 0:
-        // Home — pop everything back to root
-        Navigator.of(context).popUntil((route) => route.isFirst);
+        // Home
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (_) => const HomeScreen()),
+        );
         break;
       case 1:
-        // Progress
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) => const ProgressScreen()),
-        );
+        // Progress — already here, do nothing
         break;
       case 2:
         // Chat / Messages
@@ -79,56 +78,48 @@ class AppBottomNavBar extends StatelessWidget {
         border: Border(top: BorderSide(color: AppTheme.divider, width: 0.5)),
       ),
       child: SafeArea(
-        child: SizedBox(
-          height: 60,
+        top: false,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: List.generate(_items.length, (i) {
-              return _NavBarItem(
-                item: _items[i],
-                isSelected: i == currentIndex,
+              final selected = currentIndex == i;
+              return GestureDetector(
                 onTap: () => _handleNavigation(context, i),
+                behavior: HitTestBehavior.opaque,
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 200),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 6,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        _items[i].icon,
+                        size: 24,
+                        color: selected ? Colors.white : Colors.grey[600],
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        _items[i].label,
+                        style: TextStyle(
+                          fontSize: 10,
+                          fontWeight: selected
+                              ? FontWeight.w700
+                              : FontWeight.w400,
+                          color: selected ? Colors.white : Colors.grey[600],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               );
             }),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class _NavBarItem extends StatelessWidget {
-  final _NavItem item;
-  final bool isSelected;
-  final VoidCallback onTap;
-
-  const _NavBarItem({
-    required this.item,
-    required this.isSelected,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final color = isSelected ? Colors.white : Colors.grey;
-
-    return GestureDetector(
-      onTap: onTap,
-      behavior: HitTestBehavior.opaque,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(item.icon, size: 24, color: color),
-          const SizedBox(height: 4),
-          Text(
-            item.label,
-            style: TextStyle(
-              fontSize: 10,
-              color: color,
-              fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
-            ),
-          ),
-        ],
       ),
     );
   }

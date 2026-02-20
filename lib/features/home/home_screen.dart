@@ -6,6 +6,7 @@ import 'widgets/quick_actions_card.dart';
 import 'widgets/recent_alerts_card.dart';
 import 'widgets/status_today_card.dart';
 import 'widgets/this_month_card.dart';
+import '../progress/progress_screen.dart'; // 👈 import Progress screen
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,6 +21,29 @@ class _HomeScreenState extends State<HomeScreen> {
   // In a real app, this would come from a provider/bloc/etc.
   final Student _student = sampleStudent;
 
+  // ── Navigation Handler ─────────────────────────────────────────────────────
+
+  void _onNavTap(int index) {
+    if (index == _currentIndex) return;
+
+    switch (index) {
+      case 0:
+        // Already on Home, do nothing
+        break;
+      case 1:
+        // Navigate to Progress screen
+        Navigator.of(
+          context,
+        ).push(MaterialPageRoute(builder: (_) => const ProgressScreen()));
+        break;
+      default:
+        // Placeholder for Chat, Announcement, Account
+        setState(() => _currentIndex = index);
+    }
+  }
+
+  // ── Build ──────────────────────────────────────────────────────────────────
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,17 +51,24 @@ class _HomeScreenState extends State<HomeScreen> {
       body: _buildBody(),
       bottomNavigationBar: AppBottomNavBar(
         currentIndex: _currentIndex,
-        onTap: (i) => setState(() => _currentIndex = i),
+        onTap: _onNavTap,
       ),
     );
   }
 
   AppBar _buildAppBar() {
     return AppBar(
-      title: const Text('TKD Student App'),
+      title: const Text(
+        'TKD Student App',
+        style: TextStyle(color: Colors.white),
+      ),
+      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       actions: [
         IconButton(
-          icon: const Icon(Icons.notifications_none_rounded),
+          icon: const Icon(
+            Icons.notifications_none_rounded,
+            color: Colors.white,
+          ),
           onPressed: () {},
         ),
       ],
