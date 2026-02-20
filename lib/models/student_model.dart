@@ -40,8 +40,8 @@ final sampleStudent = Student(
   beltLevel: 'Green Belt',
   instructor: 'Benedick caber',
   nextClass: 'Today - 5:00 PM',
-  classesAttended: 8,
-  totalClasses: 8,
+  classesAttended: 7,
+  totalClasses: 9,
   progressScore: 82,
   checkInTime: '4:58 PM (FaceScan)',
   alerts: [

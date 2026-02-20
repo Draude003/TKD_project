@@ -39,4 +39,12 @@ final List<ChatMessage> dummyMessages = [
     avatarInitial: 'C',
     isYou: true,
   ),
+   ChatMessage(
+    id: '3',
+    senderName: 'Maria dela cruz',
+    lastMessage: 'goodluck nak!',
+    time: 'Yesterday',
+    avatarInitial: 'C',
+    isYou: true,
+  ),
 ];

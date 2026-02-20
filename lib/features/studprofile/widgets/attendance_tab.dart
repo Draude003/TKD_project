@@ -40,6 +40,41 @@ class _AttendanceTabState extends State<AttendanceTab> {
       'method': 'Face Scan',
       'time': '4:58 PM',
     },
+    {
+      'day': '9',
+      'month': 'SEPT',
+      'status': 'Late',
+      'method': 'Face Scan',
+      'time': '4:58 PM',
+    },
+    {
+      'day': '10',
+      'month': 'SEPT',
+      'status': 'Present',
+      'method': 'Face Scan',
+      'time': '4:58 PM',
+    },
+    {
+      'day': '11',
+      'month': 'SEPT',
+      'status': 'Present',
+      'method': 'Face Scan',
+      'time': '4:58 PM',
+    },
+    {
+      'day': '12',
+      'month': 'SEPT',
+      'status': 'Absent',
+      'method': 'Face Scan',
+      'time': '-',
+    },
+    {
+      'day': '13',
+      'month': 'SEPT',
+      'status': 'Late',
+      'method': 'Face Scan',
+      'time': '4:58 PM',
+    },
   ];
 
   List<Map<String, dynamic>> get _filteredRecords {

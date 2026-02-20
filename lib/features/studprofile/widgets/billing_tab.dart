@@ -4,6 +4,13 @@ class BillingTab extends StatelessWidget {
   const BillingTab({super.key});
 
   final List<Map<String, dynamic>> _invoices = const [
+     {
+      'month': 'OCT',
+      'year': '2024',
+      'amount': '₱2,500',
+      'note': 'Paid on Sept 1, 2024',
+      'paid': true,
+    },
     {
       'month': 'SEP',
       'year': '2024',
@@ -28,6 +35,12 @@ class BillingTab extends StatelessWidget {
   ];
 
   final List<Map<String, dynamic>> _paymentHistory = const [
+      {
+      'title': 'October Payment',
+      'subtitle': 'Paid by Parent Account',
+      'amount': '₱2,500',
+      'date': 'Oct 1, 2024',
+    },
     {
       'title': 'September Payment',
       'subtitle': 'Paid by Parent Account',
