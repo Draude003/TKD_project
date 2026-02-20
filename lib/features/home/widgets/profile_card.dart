@@ -22,7 +22,7 @@ class ProfileCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: AppTheme.primaryDark,
+          color: const Color.fromARGB(255, 26, 26, 26),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Row(
@@ -36,6 +36,7 @@ class ProfileCard extends StatelessWidget {
     );
   }
 }
+
 class _Avatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
