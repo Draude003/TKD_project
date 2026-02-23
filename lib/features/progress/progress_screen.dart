@@ -29,35 +29,17 @@ class ProgressScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFF2F2F7),
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF1C1C1E),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        title: const Text(
-          'Progress',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 18,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.fromLTRB(16, 20, 16, 20),
-        child: Column(
-          children: [
-            SkillProgressCard(skills: _skills),
-            const SizedBox(height: 16),
-            CoachNotesCard(coachNote: _coachNote),
-            const SizedBox(height: 16),
-            ReadinessCard(readiness: _readiness),
-            const SizedBox(height: 16),
-          ],
-        ),
+    return SingleChildScrollView(
+      padding: const EdgeInsets.fromLTRB(16, 20, 16, 20),
+      child: Column(
+        children: [
+          SkillProgressCard(skills: _skills),
+          const SizedBox(height: 16),
+          CoachNotesCard(coachNote: _coachNote),
+          const SizedBox(height: 16),
+          ReadinessCard(readiness: _readiness),
+          const SizedBox(height: 16),
+        ],
       ),
     );
   }

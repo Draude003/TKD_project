@@ -22,7 +22,7 @@ final List<ChatMessage> dummyMessages = [
     senderName: 'Master Kim (Coach)',
     lastMessage: 'Practice kicks daily',
     time: '2:30 PM',
-    avatarInitial: 'K',
+    avatarInitial: 'M',
   ),
   ChatMessage(
     id: '2',
@@ -44,7 +44,15 @@ final List<ChatMessage> dummyMessages = [
     senderName: 'Maria dela cruz',
     lastMessage: 'goodluck nak!',
     time: 'Yesterday',
-    avatarInitial: 'C',
+    avatarInitial: 'M',
+    isYou: true,
+  ),
+  ChatMessage(
+    id: '4',
+    senderName: 'aria dela cruz',
+    lastMessage: 'goodluck!',
+    time: 'Yesterday',
+    avatarInitial: 'A',
     isYou: true,
   ),
 ];

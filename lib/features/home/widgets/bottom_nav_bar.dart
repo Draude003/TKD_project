@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../theme/app_theme.dart';
-import '../../../features/progress/progress_screen.dart';
-import '../../../features/chat/message_screen.dart';
 
 class _NavItem {
   final IconData icon;
@@ -28,49 +26,6 @@ class AppBottomNavBar extends StatelessWidget {
     _NavItem(icon: Icons.person_outline_rounded, label: 'Account'),
   ];
 
-  void _handleNavigation(BuildContext context, int index) {
-    if (index == currentIndex) return;
-
-    onTap(index);
-
-    switch (index) {
-      case 0:
-        // Home — pop everything back to root
-        Navigator.of(context).popUntil((route) => route.isFirst);
-        break;
-      case 1:
-        // Progress
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) => const ProgressScreen()),
-        );
-        break;
-      case 2:
-        // Chat / Messages
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) => const MessageScreen()),
-        );
-        break;
-      case 3:
-        // Announcement — placeholder
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Announcement coming soon!'),
-            behavior: SnackBarBehavior.floating,
-          ),
-        );
-        break;
-      case 4:
-        // Account — placeholder
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Account coming soon!'),
-            behavior: SnackBarBehavior.floating,
-          ),
-        );
-        break;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -87,7 +42,7 @@ class AppBottomNavBar extends StatelessWidget {
               return _NavBarItem(
                 item: _items[i],
                 isSelected: i == currentIndex,
-                onTap: () => _handleNavigation(context, i),
+                onTap: () => onTap(i), // simple lang, HomeScreen na bahala
               );
             }),
           ),
