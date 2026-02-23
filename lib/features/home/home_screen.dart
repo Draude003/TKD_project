@@ -8,6 +8,7 @@ import 'widgets/status_today_card.dart';
 import 'widgets/this_month_card.dart';
 import '../progress/progress_screen.dart';
 import '../chat/message_screen.dart';
+import '../announcement/announcement_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,38 +21,33 @@ class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
 
   void _onNavTap(int index) {
-    if (index == _currentIndex) return;
-
-    switch (index) {
-      case 1:
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (_) => const ProgressScreen()))
-            .then((_) => setState(() => _currentIndex = 0)); 
-        setState(() => _currentIndex = 1);
-        break;
-      default:
-        setState(() => _currentIndex = index);
-    }
-
-     switch (index) {
-      case 2:
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (_) => const MessageScreen()))
-            .then((_) => setState(() => _currentIndex = 0)); 
-        setState(() => _currentIndex = 1);
-        break;
-      default:
-        setState(() => _currentIndex = index);
-    }
+    setState(() => _currentIndex = index);
   }
+
+  //for routing
+  static const List<Widget> _screens = [
+    _HomeBody(),
+    ProgressScreen(),
+    MessageScreen(),
+    AnnouncementScreen(),
+    _PlaceholderScreen(label: 'Account'),
+  ];
+
+  static const List<String> _titles = [
+    'TKD Student App',
+    'progress',
+    'Messages',
+    'Announcements',
+    'Account',
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'TKD Student App',
-          style: TextStyle(color: Colors.white),
+        title: Text(
+          _titles[_currentIndex],
+          style: const TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.black,
         actions: [
@@ -64,15 +60,21 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: _buildBody(),
+      body: IndexedStack(index: _currentIndex, children: _screens),
       bottomNavigationBar: AppBottomNavBar(
         currentIndex: _currentIndex,
         onTap: _onNavTap,
       ),
     );
   }
+}
 
-  Widget _buildBody() {
+// Home tab content (extracted as separate widget)
+class _HomeBody extends StatelessWidget {
+  const _HomeBody();
+
+  @override
+  Widget build(BuildContext context) {
     final student = sampleStudent;
 
     return SingleChildScrollView(
@@ -83,10 +85,9 @@ class _HomeScreenState extends State<HomeScreen> {
           const SizedBox(height: 8),
           Text(
             'Good morning, ${student.name.split(' ').first}',
-            style: Theme.of(context)
-                .textTheme
-                .headlineMedium
-                ?.copyWith(fontWeight: FontWeight.bold),
+            style: Theme.of(
+              context,
+            ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
           ProfileCard(student: student),
@@ -101,6 +102,19 @@ class _HomeScreenState extends State<HomeScreen> {
           const SizedBox(height: 16),
         ],
       ),
+    );
+  }
+}
+
+// Placeholder para sa hindi pa tapos na screens
+class _PlaceholderScreen extends StatelessWidget {
+  final String label;
+  const _PlaceholderScreen({required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('$label coming soon!', style: const TextStyle(fontSize: 16)),
     );
   }
 }
