@@ -9,6 +9,7 @@ import 'widgets/this_month_card.dart';
 import '../progress/progress_screen.dart';
 import '../chat/message_screen.dart';
 import '../announcement/announcement_screen.dart';
+import '../account/account_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -30,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ProgressScreen(),
     MessageScreen(),
     AnnouncementScreen(),
-    _PlaceholderScreen(label: 'Account'),
+    AccountScreen(),
   ];
 
   static const List<String> _titles = [

@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="TKD Student App"
+        android:label="TKD"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
