@@ -34,20 +34,6 @@ class SkillProgressCard extends StatelessWidget {
           ),
           const SizedBox(height: 18),
           ...skills.map((skill) => _SkillBar(skill: skill)),
-          Row(
-            children: [
-              Icon(Icons.diamond_outlined, size: 13, color: Colors.purple[300]),
-              const SizedBox(width: 4),
-              Text(
-                'Compo...',
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.purple[300],
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
-          ),
         ],
       ),
     );

@@ -46,7 +46,7 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
     );
   }
 
-  Widget _emojiIcon(String emoji) {
+  Widget _iconWidget(String icon) {
     return Container(
       width: 40,
       height: 40,
@@ -54,7 +54,7 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
         color: const Color(0xFFF2F2F7),
         borderRadius: BorderRadius.circular(10),
       ),
-      child: Center(child: Text(emoji, style: const TextStyle(fontSize: 20))),
+      child: Center(child: Image.asset(icon, width: 30, height: 30)),
     );
   }
 
@@ -72,7 +72,7 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
       Divider(height: 1, color: Colors.grey[100], indent: 16, endIndent: 16);
 
   Widget _infoRow({
-    required String emoji,
+    required String icon,
     required String label,
     required String value,
     required bool divider,
@@ -83,7 +83,7 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
           child: Row(
             children: [
-              _emojiIcon(emoji),
+              _iconWidget(icon),
               const SizedBox(width: 12),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,7 +115,7 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
           child: Row(
             children: [
-              _emojiIcon('🥋'),
+              _iconWidget('assets/icons/app_icon.png'),
               const SizedBox(width: 12),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -204,8 +204,12 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
                       color: Colors.white,
                       shape: BoxShape.circle,
                     ),
-                    child: const Center(
-                      child: Text('🥋', style: TextStyle(fontSize: 38)),
+                    child: Center(
+                      child: Image.asset(
+                        'assets/icons/profile.png',
+                        width: 60,
+                        height: 60,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 12),
@@ -237,20 +241,20 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
                       child: Column(
                         children: [
                           _infoRow(
-                            emoji: '🎂',
+                            icon: 'assets/icons/app_icon.png',
                             label: 'AGE',
                             value: '${student.age} years old',
                             divider: true,
                           ),
                           _beltRow(student.beltLevel),
                           _infoRow(
-                            emoji: '🥊',
+                            icon: 'assets/icons/app_icon.png',
                             label: 'PROGRAM',
                             value: student.program,
                             divider: true,
                           ),
                           _infoRow(
-                            emoji: '📍',
+                            icon: 'assets/icons/location.png',
                             label: 'BRANCH',
                             value: student.branch,
                             divider: false,
@@ -279,8 +283,12 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
                               color: const Color(0xFF4F46E5),
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            child: const Center(
-                              child: Text('🔗', style: TextStyle(fontSize: 18)),
+                            child: Center(
+                              child: Image.asset(
+                                'assets/icons/link.png',
+                                width: 30,
+                                height: 30,
+                              ),
                             ),
                           ),
                           const SizedBox(width: 12),

@@ -44,10 +44,16 @@ class _Avatar extends StatelessWidget {
       width: 56,
       height: 56,
       decoration: BoxDecoration(
-        color: Colors.white24,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(28),
       ),
-      child: const Icon(Icons.person_rounded, color: Colors.white, size: 32),
+      child: Center(
+        child: Image.asset(
+          'assets/icons/profile.png',
+          width: 30,
+          height: 30,
+        ),
+      ),
     );
   }
 }

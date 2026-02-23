@@ -48,7 +48,7 @@ final sampleStudent = Student(
     'Belt exam sheduled for September 20',
     'New message from your coach',
   ],
-  age: 12,
+  age: 15,
   program: 'Junior Sparring',
   branch: 'TKD Main Dojang',
   linkedParent: 'Maria Dela Cruz',
