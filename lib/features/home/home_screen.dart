@@ -106,16 +106,3 @@ class _HomeBody extends StatelessWidget {
     );
   }
 }
-
-// Placeholder para sa hindi pa tapos na screens
-class _PlaceholderScreen extends StatelessWidget {
-  final String label;
-  const _PlaceholderScreen({required this.label});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('$label coming soon!', style: const TextStyle(fontSize: 16)),
-    );
-  }
-}
