@@ -9,7 +9,7 @@ class NavItem {
 
 class SkillProgress {
   final String name;
-  final double percentage; 
+  final double percentage;
 
   const SkillProgress({required this.name, required this.percentage});
 }
