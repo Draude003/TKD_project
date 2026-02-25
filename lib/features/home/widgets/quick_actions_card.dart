@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import '../../../theme/app_theme.dart';
-import '../../../features/home/quick_attendance_screen.dart'; 
+import '../../../features/home/quick_attendance_screen.dart';
+import '../../../features/home/quick_billing_screen.dart';
+import '../../../features/home/quick_certificate_screen.dart';
+import '../../../features/home/quick_competition_screen.dart';
 import 'section_card.dart';
 
 class QuickAction {
-  final IconData icon;
+  final String icon; // ← String na, hindi IconData
   final String label;
   final VoidCallback? onTap;
 
@@ -22,16 +25,37 @@ class QuickActionsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<QuickAction> actions = [
       QuickAction(
-        icon: Icons.people_alt_outlined,
+        icon: 'assets/icons/attendance.png',
         label: 'Attendance',
         onTap: () => Navigator.push(
           context,
           MaterialPageRoute(builder: (_) => const AttendanceScreen()),
         ),
       ),
-      QuickAction(icon: Icons.credit_card_outlined, label: 'Billing'),
-      QuickAction(icon: Icons.workspace_premium_outlined, label: 'Certificates'),
-      QuickAction(icon: Icons.chat_bubble_outline_rounded, label: 'Chat'),
+      QuickAction(
+        icon: 'assets/icons/billing.png',
+        label: 'Billing',
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => const BillingScreen()),
+        ),
+      ),
+      QuickAction(
+        icon: 'assets/icons/certificates.png', // ← yung available sa assets mo
+        label: 'Certificates',
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => const CertificateScreen()),
+        ),
+      ),
+      QuickAction(
+        icon: 'assets/icons/competition.png',
+        label: 'Competitions',
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => const CompetitionScreen()),
+        ),
+      ),
     ];
 
     return SectionCard(
@@ -42,7 +66,7 @@ class QuickActionsCard extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         crossAxisSpacing: 12,
         mainAxisSpacing: 12,
-        childAspectRatio: 2.2,
+        childAspectRatio: 1.3,
         children: actions.map((action) => _ActionTile(action: action)).toList(),
       ),
     );
@@ -51,32 +75,46 @@ class QuickActionsCard extends StatelessWidget {
 
 class _ActionTile extends StatelessWidget {
   final QuickAction action;
-
   const _ActionTile({required this.action});
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: AppTheme.tileBackground,
-      borderRadius: BorderRadius.circular(12),
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(16),
       child: InkWell(
         onTap: action.onTap,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(16),
+        splashColor: Colors.grey.shade200,
+        highlightColor: Colors.grey.shade100,
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: AppTheme.tileBorder),
+            color: const Color.fromARGB(255, 240, 239, 239),
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.06),
+                blurRadius: 8,
+                offset: const Offset(0, 2),
+              ),
+            ],
           ),
-          child: Row(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(action.icon, size: 22, color: Colors.black87),
-              const SizedBox(width: 8),
+              Image.asset(
+                action.icon,
+                color: const Color.fromARGB(255, 20, 20, 20),
+                width: 36,
+                height: 36,
+              ),
+              const SizedBox(height: 10),
               Text(
                 action.label,
                 style: const TextStyle(
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w600,
                   fontSize: 13,
+                  color: Color.fromARGB(255, 0, 0, 0),
                 ),
               ),
             ],
