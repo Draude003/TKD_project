@@ -241,7 +241,7 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
                       child: Column(
                         children: [
                           _infoRow(
-                            icon: 'assets/icons/app_icon.png',
+                            icon: 'assets/icons/calendar.png',
                             label: 'AGE',
                             value: '${student.age} years old',
                             divider: true,
@@ -285,7 +285,7 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
                             ),
                             child: Center(
                               child: Image.asset(
-                                'assets/icons/link.png',
+                                'assets/icons/linked.png',
                                 width: 30,
                                 height: 30,
                               ),

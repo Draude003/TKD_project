@@ -11,7 +11,7 @@ class ChatTile extends StatelessWidget {
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
       leading: CircleAvatar(
         radius: 24,
-        backgroundColor: Colors.grey.shade400,
+        backgroundColor: const Color.fromARGB(255, 0, 124, 161),
         child: Text(
           message.avatarInitial,
           style: const TextStyle(
@@ -27,7 +27,10 @@ class ChatTile extends StatelessWidget {
       ),
       subtitle: Text(
         message.isYou ? 'You: ${message.lastMessage}' : message.lastMessage,
-        style: TextStyle(color: Colors.grey.shade600, fontSize: 13),
+        style: TextStyle(
+          color: const Color.fromARGB(255, 66, 66, 66),
+          fontSize: 13,
+        ),
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       ),
