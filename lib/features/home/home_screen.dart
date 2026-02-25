@@ -33,9 +33,10 @@ class _HomeScreenState extends State<HomeScreen> {
     AnnouncementScreen(),
     AccountScreen(),
   ];
-
+  
+  //for appbar title
   static const List<String> _titles = [
-    'TKD Student App',
+    'Home',
     'progress',
     'Messages',
     'Announcements',
