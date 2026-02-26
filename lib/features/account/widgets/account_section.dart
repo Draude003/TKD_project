@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../../models/account_model.dart';
+import '../screens/profile_info_screen.dart';
+import '../screens/linked_parent_screen.dart';
+import '../screens/security_pin_screen.dart';
+import '../screens/face_recognition_screen.dart';
 
 class AccountSection extends StatelessWidget {
   const AccountSection({super.key});
@@ -53,8 +57,19 @@ class AccountSection extends StatelessWidget {
                       Icons.chevron_right,
                       color: Colors.grey,
                     ),
+
+                    // routing ng account options
                     onTap: () {
-                      // TODO: navigate to each setting
+                      final screens = [
+                        const ProfileInformationScreen(),
+                        const LinkedParentScreen(),
+                        const SecurityPinScreen(),
+                        const FaceRecognitionScreen(),
+                        ];
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => screens[index]),
+                      );
                     },
                   ),
                 ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../models/announcement_model.dart';
-import 'widgets/announcement_card.dart';
+import '../../../models/announcement_model.dart';
+import '../widgets/announcement_card.dart';
 
 class AnnouncementScreen extends StatelessWidget {
   const AnnouncementScreen({super.key});

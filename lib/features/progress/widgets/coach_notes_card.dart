@@ -34,9 +34,10 @@ class CoachNotesCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Center(
-                  child: Text(
-                    coachNote.avatarEmoji,
-                    style: const TextStyle(fontSize: 24),
+                  child: Image.asset(
+                    coachNote.icon,
+                    width: 24,
+                    height: 24,
                   ),
                 ),
               ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../studprofile/widgets/competition_tab.dart';
+import '../../studprofile/widgets/attendance_tab.dart';
 
-class CompetitionScreen extends StatelessWidget {
-  const CompetitionScreen({super.key});
+class AttendanceScreen extends StatelessWidget {
+  const AttendanceScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,14 +14,14 @@ class CompetitionScreen extends StatelessWidget {
          iconTheme: const IconThemeData(color: Colors.white),
          titleSpacing: 0,
         title: const Text(
-          'Competitions',
+          'Attendance',
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.white),
         ),
         elevation: 0,
       ),
       body: const SingleChildScrollView(
         padding: EdgeInsets.symmetric(vertical: 16),
-        child: CompetitionTab(),
+        child: AttendanceTab(),
       ),
     );
   }
