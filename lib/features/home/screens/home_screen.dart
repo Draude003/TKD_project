@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import '../../models/student_model.dart';
-import 'widgets/bottom_nav_bar.dart';
-import 'widgets/profile_card.dart';
-import 'widgets/quick_actions_card.dart';
-import 'widgets/recent_alerts_card.dart';
-import 'widgets/status_today_card.dart';
-import 'widgets/this_month_card.dart';
-import '../progress/progress_screen.dart';
-import '../chat/message_screen.dart';
-import '../announcement/announcement_screen.dart';
-import '../account/account_screen.dart';
+import '../../../models/student_model.dart';
+import '../widgets/bottom_nav_bar.dart';
+import '../widgets/profile_card.dart';
+import '../widgets/quick_actions_card.dart';
+import '../widgets/recent_alerts_card.dart';
+import '../widgets/status_today_card.dart';
+import '../widgets/this_month_card.dart';
+import '../../progress/screens/progress_screen.dart';
+import '../../chat/screens/message_screen.dart';
+import '../../announcement/screens/announcement_screen.dart';
+import '../../account/screens/account_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

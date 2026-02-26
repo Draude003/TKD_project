@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../theme/app_theme.dart';
-import '../../../features/home/quick_attendance_screen.dart';
-import '../../../features/home/quick_billing_screen.dart';
-import '../../../features/home/quick_certificate_screen.dart';
-import '../../../features/home/quick_competition_screen.dart';
+import '../screens/quick_attendance_screen.dart';
+import '../screens/quick_billing_screen.dart';
+import '../screens/quick_certificate_screen.dart';
+import '../screens/quick_competition_screen.dart';
 import 'section_card.dart';
 
 class QuickAction {
@@ -41,7 +40,7 @@ class QuickActionsCard extends StatelessWidget {
         ),
       ),
       QuickAction(
-        icon: 'assets/icons/certificates.png', // ← yung available sa assets mo
+        icon: 'assets/icons/certificates.png', 
         label: 'Certificates',
         onTap: () => Navigator.push(
           context,

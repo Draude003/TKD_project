@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'widgets/account_section.dart';
-import 'widgets/preferences_section.dart';
+import '../widgets/account_section.dart';
+import '../widgets/preferences_section.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});

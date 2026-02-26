@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../studprofile/widgets/billing_tab.dart';
+import '../../studprofile/widgets/competition_tab.dart';
 
-class BillingScreen extends StatelessWidget {
-  const BillingScreen({super.key});
+class CompetitionScreen extends StatelessWidget {
+  const CompetitionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,14 +14,14 @@ class BillingScreen extends StatelessWidget {
          iconTheme: const IconThemeData(color: Colors.white),
          titleSpacing: 0,
         title: const Text(
-          'Billing',
+          'Competitions',
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.white),
         ),
         elevation: 0,
       ),
       body: const SingleChildScrollView(
         padding: EdgeInsets.symmetric(vertical: 16),
-        child: BillingTab(),
+        child: CompetitionTab(),
       ),
     );
   }

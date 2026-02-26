@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../studprofile/widgets/certificate_tab.dart';
+import '../../studprofile/widgets/certificate_tab.dart';
 
 class CertificateScreen extends StatelessWidget {
   const CertificateScreen({super.key});

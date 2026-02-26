@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tkd/features/studprofile/student_profile.dart';
+import 'package:tkd/features/studprofile/screens/student_profile.dart';
 import '../../../models/student_model.dart';
 import '../../../theme/app_theme.dart';
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '/models/progress_models.dart';
-import 'widgets/skill_progress_card.dart';
-import 'widgets/coach_notes_card.dart';
-import 'widgets/readlines_card.dart';
+import '../widgets/skill_progress_card.dart';
+import '../widgets/coach_notes_card.dart';
+import '../widgets/readlines_card.dart';
 
 class ProgressScreen extends StatelessWidget {
   const ProgressScreen({super.key});
@@ -16,7 +16,7 @@ class ProgressScreen extends StatelessWidget {
 
   static const CoachNote _coachNote = CoachNote(
     coachName: "Coach's Notes",
-    avatarEmoji: '🧑‍🏫',
+    icon: 'assets/icons/profile.png',
     updatedLabel: 'Master Kim Updated 2 days ago',
     note: 'Improve guard and balance',
   );

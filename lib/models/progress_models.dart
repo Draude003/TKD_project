@@ -16,13 +16,13 @@ class SkillProgress {
 
 class CoachNote {
   final String coachName;
-  final String avatarEmoji;
+  final String icon;
   final String updatedLabel;
   final String note;
 
   const CoachNote({
     required this.coachName,
-    required this.avatarEmoji,
+    required this.icon,
     required this.updatedLabel,
     required this.note,
   });
