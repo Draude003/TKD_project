@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 import '../../../models/student_model.dart';
 import '../widgets/bottom_nav_bar.dart';
 import '../widgets/profile_card.dart';
-import '../widgets/quick_actions_card.dart';
+import '../widgets/student_quick_actions_card.dart';
 import '../widgets/recent_alerts_card.dart';
 import '../widgets/status_today_card.dart';
 import '../widgets/this_month_card.dart';
 import '../../progress/screens/progress_screen.dart';
-import '../../chat/screens/message_screen.dart';
+import '../../chat/screens/chat_screen.dart';
 import '../../announcement/screens/announcement_screen.dart';
-import '../../account/screens/account_screen.dart';
+import '../../account/screens/student_account_screen.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class StudentHomeScreen extends StatefulWidget {
+  const StudentHomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<StudentHomeScreen> createState() => _StudentHomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _StudentHomeScreenState extends State<StudentHomeScreen> {
   int _currentIndex = 0;
 
   void _onNavTap(int index) {
@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
   static const List<Widget> _screens = [
     _HomeBody(),
     ProgressScreen(),
-    MessageScreen(),
+    ChatScreen(),
     AnnouncementScreen(),
     AccountScreen(),
   ];
@@ -96,7 +96,7 @@ class _HomeBody extends StatelessWidget {
           const SizedBox(height: 16),
           StatusTodayCard(checkInTime: student.checkInTime),
           const SizedBox(height: 16),
-          const QuickActionsCard(),
+          const StudentQuickActionsCard(),
           const SizedBox(height: 16),
           ThisMonthCard(student: student),
           const SizedBox(height: 16),

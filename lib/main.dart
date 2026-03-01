@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'features/home/screens/home_screen.dart';
 import 'theme/app_theme.dart';
+import 'features/login/screens/login_screen.dart';
+import 'features/parent/screens/parent_home_screen.dart';
 
 void main() {
   runApp(const TKDApp());
@@ -15,7 +16,7 @@ class TKDApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'TKD Student App',
       theme: AppTheme.lightTheme,
-      home: const HomeScreen(),
+      home: const LoginScreen(),
     );
   }
 }
